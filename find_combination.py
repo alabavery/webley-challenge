@@ -1,4 +1,4 @@
-def find_dish_combination3(target_price, dishes, total_price=0, combo_so_far=[]):
+def find_dish_combination(target_price, dishes, total_price=0, combo_so_far=[]):
     if total_price > target_price:
         return []
 
