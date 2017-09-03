@@ -6,7 +6,7 @@ def find_dish_combination(target_price, dishes, total_price=0, combo_so_far=[]):
         if (target_price - total_price) % dish['price'] == 0:
             quantity_of_dish = int((target_price - total_price) / dish['price'])
             return combo_so_far + [dish['name']] * quantity_of_dish
-        returned_combo = find_dish_combination3(target_price, dishes[i:], total_price + dish['price'],
+        returned_combo = find_dish_combination(target_price, dishes[i:], total_price + dish['price'],
                                                combo_so_far + [dish['name']])
         if len(returned_combo) > 0:
             return returned_combo
