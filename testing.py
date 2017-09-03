@@ -1,5 +1,5 @@
 import unittest
-from find_combination import find_dish_combination3 as find_dish_combination
+from find_combination import find_dish_combination as find_dish_combination
 
 class TestCombo(unittest.TestCase):
 
