@@ -1,4 +1,21 @@
+def find_dish_combination3(target_price, dishes, total_price=0, combo_so_far=[]):
+    if total_price > target_price:
+        return []
 
+    for i,dish in enumerate(dishes):
+        if (target_price - total_price) % dish['price'] == 0:
+            quantity_of_dish = int((target_price - total_price) / dish['price'])
+            return combo_so_far + [dish['name']] * quantity_of_dish
+        returned_combo = find_dish_combination3(target_price, dishes[i:], total_price + dish['price'],
+                                               combo_so_far + [dish['name']])
+        if len(returned_combo) > 0:
+            return returned_combo
+    return []
+
+"""
+Just for fun... an iterative solution.  It's very slow when
+the ratio between target price and dish prices is very high.
+"""
 def find_dish_combination1(target_price, dishes):
     """
     :param target_price: float
@@ -24,10 +41,6 @@ def find_dish_combination1(target_price, dishes):
     return []
 
 
-"""
-Just for fun... the recursive solution I found.  It's faster, but hits recursion limit when
-the ratio between target price and dish prices is too high.
-"""
 def find_dish_combination2(target_price, dishes, total_price=0, combo_so_far=[]):
     if total_price > target_price:
         return []
