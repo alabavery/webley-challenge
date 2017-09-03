@@ -16,7 +16,7 @@ def find_dish_combination(target_price, dishes, total_price=0, combo_so_far=[]):
 Just for fun... an iterative solution.  It's very slow when
 the ratio between target price and dish prices is very high.
 """
-def find_dish_combination1(target_price, dishes):
+def find_dish_combination_iterative(target_price, dishes):
     """
     :param target_price: float
     :param dishes: List({'name':str,'price':float})
@@ -38,18 +38,4 @@ def find_dish_combination1(target_price, dishes):
                 if new_total > target_price:
                     continue
                 queue.append([new_total, i, new_combo_solution])
-    return []
-
-
-def find_dish_combination2(target_price, dishes, total_price=0, combo_so_far=[]):
-    if total_price > target_price:
-        return []
-    if total_price == target_price:
-        return combo_so_far
-
-    for i,dish in enumerate(dishes):
-        returned_combo = find_dish_combination2(target_price, dishes[i:], total_price + dish['price'],
-                                               combo_so_far + [dish['name']])
-        if len(returned_combo) > 0:
-            return returned_combo
     return []
