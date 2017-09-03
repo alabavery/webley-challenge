@@ -1,5 +1,5 @@
 import unittest
-from find_combination import find_dish_combination1
+from find_combination import find_dish_combination3 as find_dish_combination
 
 class TestCombo(unittest.TestCase):
 
@@ -18,20 +18,20 @@ class TestCombo(unittest.TestCase):
             ['a'] + ['c'] * 6,
             ['b'] * 2 + ['c'] * 2
         ]
-        tested_solution = find_dish_combination1(20, prepared_items)
+        tested_solution = find_dish_combination(20, prepared_items)
         assert tested_solution in possible_solutions
 
     def test_empty_items(self):
         prepared_items = self.prepare_items([], [])
-        self.assertEqual(find_dish_combination1(20, prepared_items), [])
+        self.assertEqual(find_dish_combination(20, prepared_items), [])
 
     def test_no_solution(self):
         prepared_items = self.prepare_items(['a','b'], [10,9])
-        self.assertEqual(find_dish_combination1(17, prepared_items), [])
+        self.assertEqual(find_dish_combination(17, prepared_items), [])
 
     def test_exactly_one_item(self):
         prepared_items = self.prepare_items(['a','b','c'],[9,10,11])
-        self.assertEqual(find_dish_combination1(10, prepared_items), ['b'])
+        self.assertEqual(find_dish_combination(10, prepared_items), ['b'])
 
 
 if __name__ == '__main__':
