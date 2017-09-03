@@ -1,4 +1,11 @@
 def find_dish_combination(target_price, dishes, total_price=0, combo_so_far=[]):
+    """
+    :param target_price: float
+    :param dishes: List({'name':str,'price':float})
+    :param total_price: float -> the price accumulated in the recursive process so far
+    :param combo_so_far: List(str) -> the dishes accumulated in the recursive process so far
+    :return: List(str) (if no solution, then list is empty) -> list of dish names
+    """
     if total_price > target_price:
         return []
 
